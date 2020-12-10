@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Properties;
 
 public class ConfParser {
-    private Properties confProperties;
+    private static Properties confProperties;
 
     public ConfParser(){}
 
@@ -30,7 +30,15 @@ public class ConfParser {
         return this;
     }
 
-    public String getStringOrDefault(String key, String defaultValue){
+    public static String getRequiredString(String key){
+        String value = confProperties.getProperty(key);
+        if(null == value || value.length() <= 0){
+            throw new IllegalArgumentException("not found required value , key=" + key);
+        }
+        return value;
+    }
+
+    public static String getStringOrDefault(String key, String defaultValue){
         String value = confProperties.getProperty(key);
         if(null == value || value.length() <= 0){
             return defaultValue;
@@ -38,7 +46,7 @@ public class ConfParser {
         return value;
     }
 
-    public Integer getIntegerOrDefault(String key, Integer defaultValue){
+    public static Integer getIntegerOrDefault(String key, Integer defaultValue){
         Object value = confProperties.getProperty(key);
         if(null == value){
             return defaultValue;
