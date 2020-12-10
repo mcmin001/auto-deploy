@@ -3,8 +3,17 @@ package com.hello.autodeploy.entity;
 import java.util.List;
 
 public class Platform {
+    /**
+     * 平台(服务)编码
+     */
     private String platformCode;
+    /**
+     * 平台(服务)名称
+     */
     private String platformName;
+    /**
+     * 平台(服务)子服务集合
+     */
     private List<Service> serviceList;
 
     public Platform(){}

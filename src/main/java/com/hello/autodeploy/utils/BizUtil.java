@@ -39,4 +39,8 @@ public class BizUtil {
         }
         return platform;
     }
+
+    private static Platform buildPlatform(String code){
+
+    }
 }

@@ -7,6 +7,9 @@ public class Service {
      * 服务名
      */
     private String serviceName;
+    /**
+     * 部署主机集合
+     */
     private List<Host> serviceHosts;
 
     public String getServiceName() {
