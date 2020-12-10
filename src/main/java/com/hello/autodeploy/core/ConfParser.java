@@ -30,5 +30,20 @@ public class ConfParser {
         return this;
     }
 
-    public String getPlatform
+    public String getStringOrDefault(String key, String defaultValue){
+        String value = confProperties.getProperty(key);
+        if(null == value || value.length() <= 0){
+            return defaultValue;
+        }
+        return value;
+    }
+
+    public Integer getIntegerOrDefault(String key, Integer defaultValue){
+        Object value = confProperties.getProperty(key);
+        if(null == value){
+            return defaultValue;
+        }
+        return (Integer) value;
+    }
+
 }
