@@ -50,7 +50,7 @@ public class BizUtil {
         return codeList;
     }
 
-    private static List<String> getChildrenServiceCodeList(String parentCode){
+    private static List<String> getPlatformServiceCodeList(String parentCode){
         String codes = ConfParser.getRequiredString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_LIST, parentCode));
         List<String> codeList = Arrays.asList(codes.split(","));
         return codeList;
@@ -60,8 +60,8 @@ public class BizUtil {
      * 服务包路径
      * @return
      */
-    private static String getServiceDeployPackage(){
-        String deployPackage = null;
+    private static String getServiceDeployPackage(String platform, String serviceCode){
+        String deployPackage = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_PACKAGE, platform, serviceCode));
         return deployPackage;
     }
 
@@ -69,44 +69,44 @@ public class BizUtil {
      * 配置文件路径
      * @return
      */
-    private static String getServiceConf(){
-        String deployPackage = null;
-        return deployPackage;
+    private static String getServiceConf(String platform, String serviceCode){
+        String serviceConf = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_SERVICE, platform, serviceCode));
+        return serviceConf;
     }
 
     /**
      * 启动脚本路径
      * @return
      */
-    private static String getServiceStartBinPath(){
-        String deployPackage = null;
-        return deployPackage;
+    private static String getServiceStartBinPath(String platform, String serviceCode){
+        String startBinPath = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_BIN_START, platform, serviceCode));
+        return startBinPath;
     }
 
     /**
      * 启动脚本输入参数
      * @return
      */
-    private static String getServiceStartBinParams(){
-        String deployPackage = null;
-        return deployPackage;
+    private static String getServiceStartBinParams(String platform, String serviceCode){
+        String startBinPathParams = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_BIN_START, platform, serviceCode));
+        return startBinPathParams;
     }
 
     /**
      * 服务停止脚本路径
      * @return
      */
-    private static String getServiceStopBinPath(){
-        String deployPackage = null;
-        return deployPackage;
+    private static String getServiceStopBinPath(String platform, String serviceCode){
+        String stopBinPath = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_BIN_STOP, platform, serviceCode));
+        return stopBinPath;
     }
 
     /**
      * 服务停止脚本输入参数
      * @return
      */
-    private static String getServiceStopBinParams(){
-        String deployPackage = null;
-        return deployPackage;
+    private static String getServiceStopBinParams(String platform, String serviceCode){
+        String stopBinParams = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_BIN_STOP_PARAMS, platform, serviceCode));
+        return stopBinParams;
     }
 }

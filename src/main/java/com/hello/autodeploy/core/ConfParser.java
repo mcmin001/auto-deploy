@@ -30,6 +30,10 @@ public class ConfParser {
         return this;
     }
 
+    public static String getString(String key){
+        return confProperties.getProperty(key);
+    }
+
     public static String getRequiredString(String key){
         String value = confProperties.getProperty(key);
         if(null == value || value.length() <= 0){
