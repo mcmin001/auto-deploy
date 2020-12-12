@@ -29,7 +29,6 @@ public class PlatformFactory {
                 serviceHost.setServiceStartScriptPath(BizUtil.getServiceStartBinPath(platformCode, serviceCode));
             }
         }
-
         return platform;
     }
 }
