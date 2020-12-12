@@ -25,8 +25,9 @@ public class BizUtil {
         return platformList;
     }
 
-    private static Platform code2Platform(String code){
-        Platform platform;
+    public static Platform code2Platform(String code){
+        Platform platform = new Platform(code);
+
         switch (code){
             case Const.IDGP_CODE:
                 platform = new Platform(code);
@@ -44,23 +45,29 @@ public class BizUtil {
      * 获取平台(服务编码)
      * @return
      */
-    private static List<String> getPlatformCodeList(){
+    public static List<String> getPlatformCodeList(){
         String codes = ConfParser.getRequiredString(Const.PLATFORM_CODE_LIST);
         List<String> codeList = Arrays.asList(codes.split(","));
         return codeList;
     }
 
-    private static List<String> getPlatformServiceCodeList(String parentCode){
+    public static List<String> getPlatformServiceCodeList(String parentCode){
         String codes = ConfParser.getRequiredString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_LIST, parentCode));
         List<String> codeList = Arrays.asList(codes.split(","));
         return codeList;
+    }
+
+    public static List<String> getPlatformServiceHosts(String platform, String serviceCode){
+        String hosts = ConfParser.getRequiredString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_HOSTS, platform, serviceCode));
+        List<String> hostList = Arrays.asList(hosts.split(","));
+        return hostList;
     }
 
     /**
      * 服务包路径
      * @return
      */
-    private static String getServiceDeployPackage(String platform, String serviceCode){
+    public static String getServiceDeployPackage(String platform, String serviceCode){
         String deployPackage = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_PACKAGE, platform, serviceCode));
         return deployPackage;
     }
@@ -69,7 +76,7 @@ public class BizUtil {
      * 配置文件路径
      * @return
      */
-    private static String getServiceConf(String platform, String serviceCode){
+    public static String getServiceConf(String platform, String serviceCode){
         String serviceConf = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_SERVICE, platform, serviceCode));
         return serviceConf;
     }
@@ -78,7 +85,7 @@ public class BizUtil {
      * 启动脚本路径
      * @return
      */
-    private static String getServiceStartBinPath(String platform, String serviceCode){
+    public static String getServiceStartBinPath(String platform, String serviceCode){
         String startBinPath = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_BIN_START, platform, serviceCode));
         return startBinPath;
     }
@@ -87,7 +94,7 @@ public class BizUtil {
      * 启动脚本输入参数
      * @return
      */
-    private static String getServiceStartBinParams(String platform, String serviceCode){
+    public static String getServiceStartBinParams(String platform, String serviceCode){
         String startBinPathParams = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_BIN_START, platform, serviceCode));
         return startBinPathParams;
     }

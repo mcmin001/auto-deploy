@@ -31,6 +31,11 @@ public class Const {
     public static final String TEMPLATE_PLATFORM_SERVICE_CODE_LIST = "%s.platform.service.code.list";
 
     /**
+     * 指定平台(服务)子服务部署机器IP
+     */
+    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_HOSTS = "%s.platform.service.%s.hosts";
+
+    /**
      * 指定平台(服务)指定子服务的配置文件
      */
     public static final String TEMPLATE_PLATFORM_SERVICE_CODE_SERVICE = "%s.platform.service.%s.conf";
