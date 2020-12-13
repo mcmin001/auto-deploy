@@ -1,4 +1,4 @@
-package com.hello.autodeploy.entity;
+package autodeploy.entity;
 
 public class Host {
     /**

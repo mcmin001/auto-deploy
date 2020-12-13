@@ -1,4 +1,4 @@
-package com.hello.autodeploy.utils;
+package autodeploy.utils;
 
 import java.util.Scanner;
 

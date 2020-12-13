@@ -1,4 +1,4 @@
-package com.hello.autodeploy.entity;
+package autodeploy.entity;
 
 import java.util.List;
 

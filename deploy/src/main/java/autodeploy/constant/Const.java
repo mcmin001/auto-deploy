@@ -1,4 +1,4 @@
-package com.hello.autodeploy.constant;
+package autodeploy.constant;
 
 public class Const {
     /**

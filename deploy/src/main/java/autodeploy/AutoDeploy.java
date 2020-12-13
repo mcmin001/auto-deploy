@@ -1,9 +1,10 @@
-package com.hello.autodeploy;
+package autodeploy;
 
-import com.hello.autodeploy.constant.Const;
-import com.hello.autodeploy.core.ConfParser;
-import com.hello.autodeploy.utils.ConsoleScannerUtil;
-import com.hello.autodeploy.worker.Worker;
+
+import autodeploy.constant.Const;
+import autodeploy.core.ConfParser;
+import autodeploy.utils.ConsoleScannerUtil;
+import autodeploy.worker.Worker;
 
 import java.util.Arrays;
 import java.util.List;

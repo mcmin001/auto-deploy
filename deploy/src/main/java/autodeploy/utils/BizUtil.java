@@ -1,8 +1,9 @@
-package com.hello.autodeploy.utils;
+package autodeploy.utils;
 
-import com.hello.autodeploy.constant.Const;
-import com.hello.autodeploy.core.ConfParser;
-import com.hello.autodeploy.entity.Platform;
+
+import autodeploy.constant.Const;
+import autodeploy.core.ConfParser;
+import autodeploy.entity.Platform;
 
 import java.util.ArrayList;
 import java.util.Arrays;

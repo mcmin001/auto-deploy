@@ -1,4 +1,4 @@
-package com.hello.autodeploy.worker;
+package autodeploy.worker;
 
 import com.alibaba.fastjson.JSON;
 import com.hello.autodeploy.core.PlatformFactory;

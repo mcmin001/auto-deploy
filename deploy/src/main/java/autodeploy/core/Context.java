@@ -1,4 +1,4 @@
-package com.hello.autodeploy.core;
+package autodeploy.core;
 
 import com.hello.autodeploy.entity.Platform;
 
