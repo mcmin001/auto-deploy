@@ -3,7 +3,9 @@ package com.hello.autodeploy;
 import com.hello.autodeploy.constant.Const;
 import com.hello.autodeploy.core.ConfParser;
 import com.hello.autodeploy.utils.ConsoleScannerUtil;
+import com.hello.autodeploy.worker.Worker;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class AutoDeploy {
@@ -28,7 +30,12 @@ public class AutoDeploy {
             System.out.print("please input:");
 
             String chooses = ConsoleScannerUtil.getConsoleInput();
-            System.out.println(chooses);
+
+            System.out.println(String.format(Const.TEMPLATE_CONFORM_DEPLOY_PLATFORM_CODE, chooses));
+
+            Worker worker = new Worker(Arrays.asList(chooses.split(",")));
+
+            worker.startDeploy();
         }catch (Exception e){
             e.printStackTrace();
         }

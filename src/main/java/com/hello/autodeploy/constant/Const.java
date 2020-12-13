@@ -12,6 +12,8 @@ public class Const {
 
     public static final String TEMPLATE_CONSOLE_CHOOSE_PLATFORM_CODE = "%s->platform code is:%s";
 
+    public static final String TEMPLATE_CONFORM_DEPLOY_PLATFORM_CODE = "%s will be deploied";
+
     /**
      * 平台(服务)编码集合key
      */

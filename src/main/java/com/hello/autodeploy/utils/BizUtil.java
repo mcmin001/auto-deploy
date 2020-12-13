@@ -95,7 +95,7 @@ public class BizUtil {
      * @return
      */
     public static String getServiceStartBinParams(String platform, String serviceCode){
-        String startBinPathParams = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_BIN_START, platform, serviceCode));
+        String startBinPathParams = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_BIN_START_PARAMS, platform, serviceCode));
         return startBinPathParams;
     }
 
