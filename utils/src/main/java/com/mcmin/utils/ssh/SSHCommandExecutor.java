@@ -8,6 +8,9 @@ import java.io.*;
 import java.nio.charset.Charset;
 import java.util.Properties;
 
+/**
+ * to see:https://blog.csdn.net/coding99/article/details/52416373
+ */
 public class SSHCommandExecutor implements Closeable {
     private String ip;
     private int sshPort;
