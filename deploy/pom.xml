@@ -18,8 +18,9 @@
 
     <dependencies>
         <dependency>
-            <groupId></groupId>
-            <artifactId></artifactId>
+            <groupId>com.mcmin</groupId>
+            <artifactId>utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
