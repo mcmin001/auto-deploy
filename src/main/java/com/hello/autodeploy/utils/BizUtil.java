@@ -103,7 +103,7 @@ public class BizUtil {
      * 服务停止脚本路径
      * @return
      */
-    private static String getServiceStopBinPath(String platform, String serviceCode){
+    public static String getServiceStopBinPath(String platform, String serviceCode){
         String stopBinPath = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_BIN_STOP, platform, serviceCode));
         return stopBinPath;
     }
@@ -112,7 +112,7 @@ public class BizUtil {
      * 服务停止脚本输入参数
      * @return
      */
-    private static String getServiceStopBinParams(String platform, String serviceCode){
+    public static String getServiceStopBinParams(String platform, String serviceCode){
         String stopBinParams = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_BIN_STOP_PARAMS, platform, serviceCode));
         return stopBinParams;
     }

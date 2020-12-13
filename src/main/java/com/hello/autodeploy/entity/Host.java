@@ -26,9 +26,17 @@ public class Host {
      */
     private String serviceStartScriptPath;
     /**
+     * 服务启动脚本输入参数
+     */
+    private String serviceStartScriptParams;
+    /**
      * 主机服务停止脚本路径
      */
     private String serviceStopScriptPath;
+    /**
+     * 服务停止脚本输入参数
+     */
+    private String serviceStopScriptParams;
 
     public String getIp() {
         return ip;
@@ -84,5 +92,21 @@ public class Host {
 
     public void setServiceStopScriptPath(String serviceStopScriptPath) {
         this.serviceStopScriptPath = serviceStopScriptPath;
+    }
+
+    public String getServiceStartScriptParams() {
+        return serviceStartScriptParams;
+    }
+
+    public void setServiceStartScriptParams(String serviceStartScriptParams) {
+        this.serviceStartScriptParams = serviceStartScriptParams;
+    }
+
+    public String getServiceStopScriptParams() {
+        return serviceStopScriptParams;
+    }
+
+    public void setServiceStopScriptParams(String serviceStopScriptParams) {
+        this.serviceStopScriptParams = serviceStopScriptParams;
     }
 }
