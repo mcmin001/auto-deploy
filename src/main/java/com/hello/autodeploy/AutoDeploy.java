@@ -1,19 +1,36 @@
 package com.hello.autodeploy;
 
+import com.hello.autodeploy.constant.Const;
+import com.hello.autodeploy.core.ConfParser;
 import com.hello.autodeploy.utils.ConsoleScannerUtil;
+
+import java.util.List;
 
 public class AutoDeploy {
     public static void main(String[] args) {
-        System.out.println("*************************************");
-        System.out.println("*************************************");
-        System.out.println("***** auto deploy start now ... *****");
-        System.out.println("please choose services to deploy, enter the number what you choose. use \";\" to split");
-        System.out.println("IDGP 数据治理平台:1");
-        System.out.println("AQPT 数据安全平台:2");
+        try{
+            String confPath = args[0];
 
-        System.out.print("input:");
+            ConfParser.init(confPath);
 
-        String chooses = ConsoleScannerUtil.getConsoleInput();
-        System.out.println(chooses);
+            List<String> platformCodes = ConfParser.getStringListOnSplit("platform.code.list", ",");
+
+
+            System.out.println("*************************************");
+            System.out.println("*************************************");
+            System.out.println("***** auto deploy start now ... *****");
+            System.out.println("please choose services to deploy, enter the code what you choose. use \",\" to split");
+
+            int index = 1;
+            for(String code : platformCodes){
+                System.out.println(String.format(Const.TEMPLATE_CONSOLE_CHOOSE_PLATFORM_CODE, index, code));
+            }
+            System.out.print("please input:");
+
+            String chooses = ConsoleScannerUtil.getConsoleInput();
+            System.out.println(chooses);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

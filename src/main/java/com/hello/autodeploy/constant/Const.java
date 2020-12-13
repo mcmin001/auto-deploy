@@ -10,6 +10,8 @@ public class Const {
      */
     public static final String AQPT_CODE = "2";
 
+    public static final String TEMPLATE_CONSOLE_CHOOSE_PLATFORM_CODE = "%s->platform code is:%s";
+
     /**
      * 平台(服务)编码集合key
      */

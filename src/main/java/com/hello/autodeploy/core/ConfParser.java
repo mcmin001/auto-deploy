@@ -1,6 +1,9 @@
 package com.hello.autodeploy.core;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
 
 public class ConfParser {
@@ -8,7 +11,7 @@ public class ConfParser {
 
     public ConfParser(){}
 
-    public ConfParser build(String confPath) throws IOException {
+    public static void init(String confPath) throws IOException {
         if(null == confPath || confPath.length() <=0){
             throw new IllegalArgumentException("confPath is blank");
         }
@@ -16,8 +19,6 @@ public class ConfParser {
 
         confProperties = new Properties();
         confProperties.load(fileInputStream);
-
-        return this;
     }
 
     public ConfParser build(InputStream confInputStream) throws IOException {
@@ -28,6 +29,14 @@ public class ConfParser {
         confProperties.load(confInputStream);
 
         return this;
+    }
+
+    public static List<String> getStringListOnSplit(String key, String split){
+        String value = confProperties.getProperty(key);
+        if(null == value || value.length() <= 0){
+            return new ArrayList<>();
+        }
+        return Arrays.asList(value.split(split));
     }
 
     public static String getString(String key){
