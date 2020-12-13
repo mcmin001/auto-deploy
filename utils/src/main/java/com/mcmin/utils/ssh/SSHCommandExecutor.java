@@ -97,6 +97,10 @@ public class SSHCommandExecutor implements Closeable {
         return result.toString();
     }
 
+    public void upload(String srcFilePath, String uploadDir){
+
+    }
+
     @Override
     public void close() throws IOException {
         if(null != session){

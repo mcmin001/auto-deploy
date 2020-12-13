@@ -1,5 +1,7 @@
 package com.mcmin.utils.ssh;
 
+import com.mcmin.autodeploy.common.utils.CloseResourceUtil;
+
 public class TestSSH {
     private static final String ip= "127.0.0.1";
     private static final int port = 22;
@@ -13,5 +15,7 @@ public class TestSSH {
         String result = sshCommandExecutor.executeCommand("ls /");
 
         System.out.println(result);
+
+        CloseResourceUtil.close(sshCommandExecutor);
     }
 }
