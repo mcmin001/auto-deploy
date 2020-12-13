@@ -2,6 +2,7 @@ package com.mcmin.utils.ssh;
 
 import com.jcraft.jsch.*;
 import com.mcmin.autodeploy.common.utils.CloseResourceUtil;
+import com.mcmin.utils.ssh.sftp.FileProgressMonitor;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -18,7 +19,7 @@ public class SSHCommandExecutor implements Closeable {
     private DeploySshUseInfo deploySshUseInfo;
 
     private Session session;
-    private Channel channel;
+    //private Channel channel;
 
     public SSHCommandExecutor(){
 
@@ -68,6 +69,8 @@ public class SSHCommandExecutor implements Closeable {
         BufferedReader reader = null;
         InputStream in = null;
 
+        Channel channel = null;
+
         //脚本执行退出状态码
         int returnCode = -2;
 
@@ -91,6 +94,7 @@ public class SSHCommandExecutor implements Closeable {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
+            channel.disconnect();
             CloseResourceUtil.close(reader, in);
         }
 
@@ -98,7 +102,46 @@ public class SSHCommandExecutor implements Closeable {
     }
 
     public void upload(String srcFilePath, String uploadDir){
+        Channel channel = null;
 
+        OutputStream out = null;
+
+        ChannelSftp channelSftp = null;
+        try{
+            channel = session.openChannel("sftp");
+            channel.connect();
+
+            channelSftp = (ChannelSftp) channel;
+
+            File file = new File(srcFilePath);
+            long fileSize = file.length();
+
+            out = channelSftp.put(uploadDir, new FileProgressMonitor(fileSize), ChannelSftp.OVERWRITE);
+
+            byte[] buff = new byte[1024 * 256]; // 设定每次传输的数据块大小为256KB
+            int read;
+            if (out != null) {
+                System.out.println("Start to read input stream");
+                InputStream is = new FileInputStream(uploadDir);
+                do {
+                    read = is.read(buff, 0, buff.length);
+                    if (read > 0) {
+                        out.write(buff, 0, read);
+                    }
+                    out.flush();
+                } while (read >= 0);
+                System.out.println("input stream read done.");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if(null != channelSftp){
+                channelSftp.quit();
+            }
+            if(null != channel){
+                channel.disconnect();
+            }
+        }
     }
 
     @Override
