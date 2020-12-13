@@ -33,7 +33,7 @@ public class SSHCommandExecutor implements Closeable {
     public void connect(){
          jsch = new JSch();
         try{
-            Session session = jsch.getSession(sshUser, ip, sshPort);
+            session = jsch.getSession(sshUser, ip, sshPort);
             session.setPassword(sshPwd);
             // username and password will be given via UserInfo interface.
             session.setUserInfo(new DeploySshUseInfo());
