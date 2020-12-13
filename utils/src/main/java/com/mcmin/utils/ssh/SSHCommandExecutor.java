@@ -1,6 +1,7 @@
 package com.mcmin.utils.ssh;
 
 import com.jcraft.jsch.*;
+import com.mcmin.autodeploy.common.utils.CloseResourceUtil;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -90,21 +91,7 @@ public class SSHCommandExecutor implements Closeable {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            if(null != reader){
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            if(null != in){
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+            CloseResourceUtil.close(reader, in);
         }
 
         return result.toString();
