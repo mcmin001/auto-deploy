@@ -1,8 +1,8 @@
 package autodeploy.worker;
 
+import autodeploy.core.PlatformFactory;
+import autodeploy.entity.Platform;
 import com.alibaba.fastjson.JSON;
-import com.hello.autodeploy.core.PlatformFactory;
-import com.hello.autodeploy.entity.Platform;
 
 import java.util.List;
 

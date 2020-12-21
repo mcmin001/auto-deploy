@@ -1,9 +1,10 @@
 package autodeploy.core;
 
-import com.hello.autodeploy.entity.Host;
-import com.hello.autodeploy.entity.Platform;
-import com.hello.autodeploy.entity.Service;
-import com.hello.autodeploy.utils.BizUtil;
+
+import autodeploy.entity.Host;
+import autodeploy.entity.Platform;
+import autodeploy.entity.Service;
+import autodeploy.utils.BizUtil;
 
 import java.util.ArrayList;
 import java.util.List;
