@@ -3,7 +3,9 @@ package autodeploy.utils;
 
 import autodeploy.constant.Const;
 import autodeploy.core.ConfParser;
+import autodeploy.entity.Host;
 import autodeploy.entity.Platform;
+import com.alibaba.fastjson.JSON;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,9 +60,11 @@ public class BizUtil {
         return codeList;
     }
 
-    public static List<String> getPlatformServiceHosts(String platform, String serviceCode){
+    public static List<Host> getPlatformServiceHosts(String platform, String serviceCode){
         String hosts = ConfParser.getRequiredString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_HOSTS, platform, serviceCode));
-        List<String> hostList = Arrays.asList(hosts.split(","));
+
+        List<Host> hostList = JSON.parseArray(hosts, Host.class);
+
         return hostList;
     }
 

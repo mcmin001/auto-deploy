@@ -27,18 +27,14 @@ public class PlatformFactory {
         for(String serviceCode : platFormServiceCodes){
             Service service = new Service();
             service.setServiceName(serviceCode);
-            List<String> hosts = BizUtil.getPlatformServiceHosts(platformCode, serviceCode);
-            List<Host> hostList = new ArrayList<>();
-            for(String host : hosts){
-                Host serviceHost = new Host();
-                serviceHost.setIp(host);
-                serviceHost.setServicePackageDeployPath(BizUtil.getServiceDeployPackage(platformCode, serviceCode));
-                serviceHost.setServiceStartScriptPath(BizUtil.getServiceStartBinPath(platformCode, serviceCode));
-                serviceHost.setServiceStartScriptParams(BizUtil.getServiceStartBinParams(platformCode, serviceCode));
-                serviceHost.setServiceStopScriptPath(BizUtil.getServiceStopBinPath(platformCode, serviceCode));
-                serviceHost.setServiceStopScriptParams(BizUtil.getServiceStopBinParams(platformCode, serviceCode));
-
-                hostList.add(serviceHost);
+            List<Host> hostList = BizUtil.getPlatformServiceHosts(platformCode, serviceCode);
+            for(Host host : hostList){
+                host.setServicePackageDeployPath(BizUtil.getServiceDeployPackage(platformCode, serviceCode));
+                host.setServiceStartScriptPath(BizUtil.getServiceStartBinPath(platformCode, serviceCode));
+                host.setServiceStartScriptParams(BizUtil.getServiceStartBinParams(platformCode, serviceCode));
+                host.setServiceStopScriptPath(BizUtil.getServiceStopBinPath(platformCode, serviceCode));
+                host.setServiceStopScriptParams(BizUtil.getServiceStopBinParams(platformCode, serviceCode));
+                host.initSSHCommandExecutor();
             }
             service.setServiceHosts(hostList);
             serviceList.add(service);

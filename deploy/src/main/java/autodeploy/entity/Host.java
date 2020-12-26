@@ -1,5 +1,6 @@
 package autodeploy.entity;
 
+import com.google.common.base.Preconditions;
 import com.mcmin.utils.ssh.SSHCommandExecutor;
 
 public class Host {
@@ -15,6 +16,10 @@ public class Host {
      * ssh连接用户名
      */
     private String sshUserName;
+    /**
+     * ssh连接用户名
+     */
+    private String sshPassword;
     /**
      * ssh连接端口，默认22
      */
@@ -43,6 +48,24 @@ public class Host {
      * ssh 命令执行器
      */
     private SSHCommandExecutor sshCommandExecutor;
+
+
+    public void initSSHCommandExecutor(){
+        sshCommandExecutor = new SSHCommandExecutor(ip, sshPort, sshUserName, sshPassword);
+    }
+
+    private void checkRequiredParams(){
+        Preconditions.checkNotNull(ip);
+        Preconditions.checkNotNull(port);
+        Preconditions.checkNotNull(sshUserName);
+        Preconditions.checkNotNull(sshPassword);
+        Preconditions.checkNotNull(sshPort);
+    }
+
+    public SSHCommandExecutor getSshCommandExecutor() {
+        Preconditions.checkNotNull(sshCommandExecutor);
+        return sshCommandExecutor;
+    }
 
     public String getIp() {
         return ip;
@@ -114,5 +137,13 @@ public class Host {
 
     public void setServiceStopScriptParams(String serviceStopScriptParams) {
         this.serviceStopScriptParams = serviceStopScriptParams;
+    }
+
+    public String getSshPassword() {
+        return sshPassword;
+    }
+
+    public void setSshPassword(String sshPassword) {
+        this.sshPassword = sshPassword;
     }
 }
