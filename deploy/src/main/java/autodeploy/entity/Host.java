@@ -1,5 +1,7 @@
 package autodeploy.entity;
 
+import com.mcmin.utils.ssh.SSHCommandExecutor;
+
 public class Host {
     /**
      * 主机IP
@@ -37,6 +39,10 @@ public class Host {
      * 服务停止脚本输入参数
      */
     private String serviceStopScriptParams;
+    /**
+     * ssh 命令执行器
+     */
+    private SSHCommandExecutor sshCommandExecutor;
 
     public String getIp() {
         return ip;

@@ -1,8 +1,11 @@
 package autodeploy.worker;
 
 import autodeploy.core.PlatformFactory;
+import autodeploy.entity.Host;
 import autodeploy.entity.Platform;
+import autodeploy.entity.Service;
 import com.alibaba.fastjson.JSON;
+import com.mcmin.utils.ssh.SSHCommandExecutor;
 
 import java.util.List;
 
@@ -16,8 +19,21 @@ public class Worker {
     public void startDeploy(){
         for(String platformCode : platformCodes){
             Platform platform = PlatformFactory.createPlatform(platformCode);
+
+            List<Service> serviceList = platform.getServiceList();
+
+            for(Service service : serviceList){
+                List<Host> hostList = service.getServiceHosts();
+                /*for(Host host : hostList){
+                }*/
+            }
+
             System.out.println(JSON.toJSONString(platform));
         }
+    }
+
+    public boolean uploadServicePackage(){
+        return false;
     }
 
     public List<String> getPlatformCodes() {

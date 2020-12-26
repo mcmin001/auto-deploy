@@ -12,9 +12,10 @@ public class TestSSH {
         SSHCommandExecutor sshCommandExecutor = new SSHCommandExecutor(ip, port, sshUser, sshPasswd);
 
         sshCommandExecutor.connect();
-        String result = sshCommandExecutor.executeCommand("ls /");
+        //String result = sshCommandExecutor.executeCommand("ls /mnt/d");
+        //System.out.println(result);
 
-        System.out.println(result);
+        sshCommandExecutor.upload("D:\\test\\NP\\haha\\fuck.txt", "/mnt/d/test/fuck.txt");
 
         CloseResourceUtil.close(sshCommandExecutor);
     }

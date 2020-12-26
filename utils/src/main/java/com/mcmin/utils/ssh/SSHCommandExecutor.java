@@ -106,9 +106,7 @@ public class SSHCommandExecutor implements Closeable {
 
     public void upload(String srcFilePath, String uploadDir){
         Channel channel = null;
-
         OutputStream out = null;
-
         ChannelSftp channelSftp = null;
         try{
             channel = session.openChannel("sftp");
@@ -125,7 +123,7 @@ public class SSHCommandExecutor implements Closeable {
             int read;
             if (out != null) {
                 System.out.println("Start to read input stream");
-                InputStream is = new FileInputStream(uploadDir);
+                InputStream is = new FileInputStream(srcFilePath);
                 do {
                     read = is.read(buff, 0, buff.length);
                     if (read > 0) {
