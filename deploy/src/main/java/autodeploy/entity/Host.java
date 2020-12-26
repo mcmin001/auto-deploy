@@ -51,6 +51,7 @@ public class Host {
 
 
     public void initSSHCommandExecutor(){
+        checkRequiredParams();
         sshCommandExecutor = new SSHCommandExecutor(ip, sshPort, sshUserName, sshPassword);
     }
 
