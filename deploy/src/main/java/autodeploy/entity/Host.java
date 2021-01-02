@@ -25,21 +25,43 @@ public class Host {
      */
     private int sshPort;
     /**
-     * 主机服务部署路径
+     * 主机服务部署路径-源地址
      */
-    private String servicePackageDeployPath;
+    private String serviceRepositoryPackagePath;
     /**
-     * 主机服务启动脚本路径
+     * 主机服务部署路径-目的地地址
      */
-    private String serviceStartScriptPath;
+    private String serviceDeployPackagePath;
+
+    /**
+     * 服务配置文件-源地址
+     */
+    private String serviceRepositoryConfPath;
+    /**
+     * 服务配置文件-目的地地址
+     */
+    private String serviceDeployConfPath;
+
+    /**
+     * 主机服务启动脚本路径-源地址
+     */
+    private String serviceRepositoryStartScriptPath;
+    /**
+     * 主机服务启动脚本路径-目的地地址
+     */
+    private String serviceDeployStartScriptPath;
     /**
      * 服务启动脚本输入参数
      */
     private String serviceStartScriptParams;
     /**
-     * 主机服务停止脚本路径
+     * 主机服务停止脚本路径-源地址
      */
-    private String serviceStopScriptPath;
+    private String serviceRepositoryStopScriptPath;
+    /**
+     * 主机服务停止脚本路径-目的地地址
+     */
+    private String serviceDeployStopScriptPath;
     /**
      * 服务停止脚本输入参数
      */
@@ -100,28 +122,52 @@ public class Host {
         this.sshPort = sshPort;
     }
 
-    public String getServicePackageDeployPath() {
-        return servicePackageDeployPath;
+    public String getServiceRepositoryPackagePath() {
+        return serviceRepositoryPackagePath;
     }
 
-    public void setServicePackageDeployPath(String servicePackageDeployPath) {
-        this.servicePackageDeployPath = servicePackageDeployPath;
+    public void setServiceRepositoryPackagePath(String serviceRepositoryPackagePath) {
+        this.serviceRepositoryPackagePath = serviceRepositoryPackagePath;
     }
 
-    public String getServiceStartScriptPath() {
-        return serviceStartScriptPath;
+    public String getServiceDeployPackagePath() {
+        return serviceDeployPackagePath;
     }
 
-    public void setServiceStartScriptPath(String serviceStartScriptPath) {
-        this.serviceStartScriptPath = serviceStartScriptPath;
+    public void setServiceDeployPackagePath(String serviceDeployPackagePath) {
+        this.serviceDeployPackagePath = serviceDeployPackagePath;
     }
 
-    public String getServiceStopScriptPath() {
-        return serviceStopScriptPath;
+    public String getServiceRepositoryStartScriptPath() {
+        return serviceRepositoryStartScriptPath;
     }
 
-    public void setServiceStopScriptPath(String serviceStopScriptPath) {
-        this.serviceStopScriptPath = serviceStopScriptPath;
+    public void setServiceRepositoryStartScriptPath(String serviceRepositoryStartScriptPath) {
+        this.serviceRepositoryStartScriptPath = serviceRepositoryStartScriptPath;
+    }
+
+    public String getServiceDeployStartScriptPath() {
+        return serviceDeployStartScriptPath;
+    }
+
+    public void setServiceDeployStartScriptPath(String serviceDeployStartScriptPath) {
+        this.serviceDeployStartScriptPath = serviceDeployStartScriptPath;
+    }
+
+    public String getServiceRepositoryStopScriptPath() {
+        return serviceRepositoryStopScriptPath;
+    }
+
+    public void setServiceRepositoryStopScriptPath(String serviceRepositoryStopScriptPath) {
+        this.serviceRepositoryStopScriptPath = serviceRepositoryStopScriptPath;
+    }
+
+    public String getServiceDeployStopScriptPath() {
+        return serviceDeployStopScriptPath;
+    }
+
+    public void setServiceDeployStopScriptPath(String serviceDeployStopScriptPath) {
+        this.serviceDeployStopScriptPath = serviceDeployStopScriptPath;
     }
 
     public String getServiceStartScriptParams() {
@@ -138,6 +184,22 @@ public class Host {
 
     public void setServiceStopScriptParams(String serviceStopScriptParams) {
         this.serviceStopScriptParams = serviceStopScriptParams;
+    }
+
+    public String getServiceRepositoryConfPath() {
+        return serviceRepositoryConfPath;
+    }
+
+    public void setServiceRepositoryConfPath(String serviceRepositoryConfPath) {
+        this.serviceRepositoryConfPath = serviceRepositoryConfPath;
+    }
+
+    public String getServiceDeployConfPath() {
+        return serviceDeployConfPath;
+    }
+
+    public void setServiceDeployConfPath(String serviceDeployConfPath) {
+        this.serviceDeployConfPath = serviceDeployConfPath;
     }
 
     public String getSshPassword() {
