@@ -1,14 +1,6 @@
 package autodeploy.constant;
 
 public class Const {
-    /**
-     * IDGP
-     */
-    public static final String IDGP_CODE = "1";
-    /**
-     * AQPT
-     */
-    public static final String AQPT_CODE = "2";
 
     public static final String TEMPLATE_CONSOLE_CHOOSE_PLATFORM_CODE = "%s->platform code is:%s";
 
@@ -40,19 +32,32 @@ public class Const {
     public static final String TEMPLATE_PLATFORM_SERVICE_CODE_HOSTS = "%s.platform.service.%s.hosts";
 
     /**
-     * 指定平台(服务)指定子服务的配置文件
+     * 指定平台(服务)指定子 服务的配置文件-源地址
      */
-    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_SERVICE = "%s.platform.service.%s.deploy.conf";
+    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_REPOSITORY_CONF = "%s.platform.service.%s.repository.conf";
 
     /**
-     * 指定平台(服务)指定子服务的部署包
+     * 指定平台(服务)指定子 服务的配置文件-目的地地址
      */
-    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_PACKAGE = "%s.platform.service.%s.package";
+    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_DEPLOY_CONF = "%s.platform.service.%s.deploy.conf";
 
     /**
-     * 指定平台(服务)指定子服务的启动脚本路径
+     * 指定平台(服务)指定子 服务的部署包-源地址
      */
-    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_BIN_START = "%s.platform.service.%s.bin.start";
+    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_REPOSITORY_PACKAGE = "%s.platform.service.%s.repository.package";
+    /**
+     * 指定平台(服务)指定子 服务的部署包-目的地地址
+     */
+    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_DEPLOY_PACKAGE = "%s.platform.service.%s.deploy.package";
+
+    /**
+     * 指定平台(服务)指定子服务的启动脚本路径-源地址
+     */
+    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_REPOSITORY_BIN_START = "%s.platform.service.%s.repository.bin.start";
+    /**
+     * 指定平台(服务)指定子服务的启动脚本路径-目的地地址
+     */
+    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_DEPLOY_BIN_START = "%s.platform.service.%s.deploy.bin.start";
 
     /**
      * 指定平台(服务)指定子服务的启动脚本输入参数
@@ -60,12 +65,16 @@ public class Const {
     public static final String TEMPLATE_PLATFORM_SERVICE_CODE_BIN_START_PARAMS = "%s.platform.service.%s.bin.start.params";
 
     /**
-     * 指定平台(服务)指定子服务的停止脚本路径
+     * 指定平台(服务)指定子服务的 停止脚本路径-源地址
      */
-    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_BIN_STOP = "%s.platform.service.%s.bin.stop";
+    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_REPOSITORY_BIN_STOP = "%s.platform.service.%s.repository.bin.stop";
+    /**
+     * 指定平台(服务)指定子服务的 停止脚本路径-目的地地址
+     */
+    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_DEPLOY_BIN_STOP = "%s.platform.service.%s.deploy.bin.stop";
 
     /**
-     * 指定平台(服务)指定子服务的停止脚本输入参数
+     * 指定平台(服务)指定子服务的 停止脚本输入参数
      */
     public static final String TEMPLATE_PLATFORM_SERVICE_CODE_BIN_STOP_PARAMS = "%s.platform.service.%s.bin.stop.params";
 }

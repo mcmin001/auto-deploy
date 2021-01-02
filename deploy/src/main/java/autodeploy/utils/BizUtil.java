@@ -30,17 +30,6 @@ public class BizUtil {
 
     public static Platform code2Platform(String code){
         Platform platform = new Platform(code);
-
-        switch (code){
-            case Const.IDGP_CODE:
-                platform = new Platform(code);
-                break;
-            case Const.AQPT_CODE:
-                platform = new Platform(code);
-                break;
-            default:
-                throw new IllegalArgumentException("暂且不支持部署该服务，服务编码:" + code);
-        }
         return platform;
     }
 
@@ -69,11 +58,11 @@ public class BizUtil {
     }
 
     /**
-     * 服务包路径
+     * 服务包路径-目的地地址
      * @return
      */
     public static String getServiceDeployPackage(String platform, String serviceCode){
-        String deployPackage = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_PACKAGE, platform, serviceCode));
+        String deployPackage = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_DEPLOY_PACKAGE, platform, serviceCode));
         return deployPackage;
     }
 
@@ -82,7 +71,7 @@ public class BizUtil {
      * @return
      */
     public static String getServiceConf(String platform, String serviceCode){
-        String serviceConf = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_SERVICE, platform, serviceCode));
+        String serviceConf = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_DEPLOY_CONF, platform, serviceCode));
         return serviceConf;
     }
 
@@ -91,7 +80,7 @@ public class BizUtil {
      * @return
      */
     public static String getServiceStartBinPath(String platform, String serviceCode){
-        String startBinPath = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_BIN_START, platform, serviceCode));
+        String startBinPath = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_DEPLOY_BIN_START, platform, serviceCode));
         return startBinPath;
     }
 
@@ -109,7 +98,7 @@ public class BizUtil {
      * @return
      */
     public static String getServiceStopBinPath(String platform, String serviceCode){
-        String stopBinPath = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_BIN_STOP, platform, serviceCode));
+        String stopBinPath = ConfParser.getString(String.format(Const.TEMPLATE_PLATFORM_SERVICE_CODE_DEPLOY_BIN_STOP, platform, serviceCode));
         return stopBinPath;
     }
 
