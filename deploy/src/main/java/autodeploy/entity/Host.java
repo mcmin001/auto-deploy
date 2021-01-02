@@ -56,15 +56,15 @@ public class Host {
     }
 
     private void checkRequiredParams(){
-        Preconditions.checkNotNull(ip);
+        Preconditions.checkNotNull(ip, "Host ip is null");
         Preconditions.checkNotNull(port);
-        Preconditions.checkNotNull(sshUserName);
-        Preconditions.checkNotNull(sshPassword);
+        Preconditions.checkNotNull(sshUserName, "Host sshUserName is null");
+        Preconditions.checkNotNull(sshPassword, "Host sshPassword is null");
         Preconditions.checkNotNull(sshPort);
     }
 
     public SSHCommandExecutor getSshCommandExecutor() {
-        Preconditions.checkNotNull(sshCommandExecutor);
+        Preconditions.checkNotNull(sshCommandExecutor, "Host SSHCommandExecutor is null");
         return sshCommandExecutor;
     }
 

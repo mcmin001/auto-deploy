@@ -5,7 +5,6 @@ import autodeploy.entity.Host;
 import autodeploy.entity.Platform;
 import autodeploy.entity.Service;
 import com.alibaba.fastjson.JSON;
-import com.mcmin.utils.ssh.SSHCommandExecutor;
 
 import java.util.List;
 

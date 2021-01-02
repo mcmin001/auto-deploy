@@ -42,7 +42,7 @@ public class Const {
     /**
      * 指定平台(服务)指定子服务的配置文件
      */
-    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_SERVICE = "%s.platform.service.%s.conf";
+    public static final String TEMPLATE_PLATFORM_SERVICE_CODE_SERVICE = "%s.platform.service.%s.deploy.conf";
 
     /**
      * 指定平台(服务)指定子服务的部署包
